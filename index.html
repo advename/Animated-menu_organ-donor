@@ -255,25 +255,25 @@
 <body>
     <div id="main-content">
         <div class="navigation">
-            <div class="inner"><i class="fa fa-heartbeat fa-5x"></i></div>
+            <div class="inner pointer"><i class="fa fa-heartbeat fa-5x"></i></div>
 
-            <div class="zeroC">
+            <div class="zeroC pointer">
                 <i class="fa fa-globe fa-5x fa-no circle"></i>
                 <div class="zero"></div>
             </div>
 
-            <div class="oneC">
+            <div class="oneC pointer">
                 <i class="fa fa-search fa-5x fa-no circle"></i>
                 <div class="one square1"></div>
             </div>
 
 
-            <div class="twoC">
+            <div class="twoC pointer">
                 <i class="fa fa-envelope-o fa-5x fa-no circle"></i>
                 <div class="two square2"></div>
             </div>
 
-            <div class="threeC">
+            <div class="threeC pointer">
                 <i class="fa fa-pencil-square-o fa-5x fa-no circle"></i>
                 <div class="three square3"></div>
             </div>
@@ -305,6 +305,11 @@
     inner.addEventListener('mouseleave', beatStop);
     inner.addEventListener('click', firstEvent);
 
+
+    let cursorPointer = document.querySelectorAll(".pointer");
+     cursorPointer.forEach(function(changeme, index){
+     changeme.style.cursor="pointer";
+     });
 
     function beat() {
         if (activateScale == 0) {
