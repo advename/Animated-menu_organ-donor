@@ -41,6 +41,30 @@ body {
     z-index: 1000;
 
 }
+.innerC{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 250px;
+    background: rgba(255, 89, 114, 1.0);
+    z-index: 900;
+
+}
+.interactInner{
+    animation: interact 1s infinite;
+}
+@keyframes interact{
+    100%{
+        padding:50px;
+        background: rgba(255, 89, 114, 0.0);
+    }
+
+}
 
 .scale-inner {
     animation: scaleInner 1s infinite;

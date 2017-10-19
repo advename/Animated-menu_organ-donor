@@ -7,6 +7,7 @@
     let activateScale = 0;
     let fa = document.querySelectorAll(".circle");
     let headerH1 = document.querySelector(".h1A");
+    let innerC = document.querySelector(".innerC");
 
     let zeroC = document.querySelector(".zeroC");
     let oneC = document.querySelector(".oneC");
@@ -16,6 +17,7 @@
     inner.addEventListener('mouseenter', beat);
     inner.addEventListener('mouseleave', beatStop);
     inner.addEventListener('click', firstEvent);
+
 
 
     let cursorPointer = document.querySelectorAll(".pointer");
@@ -44,6 +46,7 @@
         square0.classList.add("square0")
         inner.style.cursor = "default";
         setTimeout(secondEvent, 1100);
+        innerC.classList.remove("interactInner");
     }
 
     function secondEvent() {
