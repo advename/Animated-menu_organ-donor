@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Allura|Dancing+Script|Dosis|Nothing+You+Could+Do|Pacifico" rel="stylesheet">
 
     <title>Animated Menu</title>
     <style>
@@ -16,27 +17,26 @@
             background: white;
             position: fixed;
             overflow-y: scroll;
+            font-family: 'Dosis', sans-serif;
         }
 
         .navigation {
             width: 500px;
             height: 500px;
             position: relative;
-            margin: 50px auto 0px auto;
+            /*margin: 50px auto 0px auto; */
         }
 
-        /*#main-content{
-            position:absolute;
-            top:0;
-            bottom:0;
-            left:0;
-            right:0;
-            margin:auto;
-            width:100px;
-            height:100px;
-            border-radius: 100px;
-            background:blue;
-        }*/
+        #main-content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+        }
 
         .inner {
             position: absolute;
@@ -74,7 +74,7 @@
             width: 250px;
             height: 250px;
             border-radius: 0px 250px 0px 0;
-            background: #ffa5ab;
+            background: pink;
             transform-origin: left bottom;
             z-index: 200;
         }
@@ -84,10 +84,7 @@
         }
 
         @keyframes square1rotates {
-
-            96%{ background: #ffa5ab; }
-            100% {
-                background: pink;
+            to {
                 transform: rotate(270deg);
             }
         }
@@ -186,51 +183,39 @@
 
         .zeroC i {
             position: absolute;
-            top: 90px;
-            bottom: 0px;
+            top: 72px;
             left: 75px;
-            right: 0px;
-            margin: auto;
             z-index: 3000;
             color: white;
         }
 
         .oneC i {
             position: absolute;
-            top: 90px;
-            bottom: 0px;
+            top: 70px;
             left: 345px;
-            right: 0px;
-            margin: auto;
             z-index: 3000;
             color: white;
         }
 
         .twoC i {
             position: absolute;
-            top: 340px;
-            bottom: 0px;
-            left: 345px;
-            right: 0px;
-            margin: auto;
+            top: 343px;
+            left: 340px;
             z-index: 3000;
             color: white;
         }
 
         .threeC i {
             position: absolute;
-            top: 345px;
-            bottom: 0px;
+            top: 346px;
             left: 75px;
-            right: 0px;
-            margin: auto;
             z-index: 3000;
             color: white;
         }
 
         .hoverC {
             transition: all 1.2s;
-            background-color: #ffa5ab;
+            background-color: #ff868e;
         }
 
         .fa-no {
@@ -249,10 +234,50 @@
             }
         }
 
+        .hide {
+            display: none;
+        }
+
+        .zero,
+        .one,
+        .two,
+        .three {
+            border: .5px solid white;
+        }
+
+        .h1-animation{
+            color: #ff5972;
+            text-align: center;
+            font-size: 50px;
+            width: 525px;
+            margin: 20px auto 0px auto;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(60, end);
+        }
+        #header {
+            color: #ff5972;
+            text-align: center;
+        }
+        #header h2{
+            font-family: 'Dancing Script', cursive;
+            font-size:40px;
+            font-weight: 500;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div id="header" class="fa-no circle">
+        <h1 class="h1A">Become an organ donor!</h1>
+        <h2>... and safe lifes</h2>
+    </div>
     <div id="main-content">
         <div class="navigation">
             <div class="inner pointer"><i class="fa fa-heartbeat fa-5x"></i></div>
@@ -295,6 +320,7 @@
     let heart = document.querySelector(".heart");
     let activateScale = 0;
     let fa = document.querySelectorAll(".circle");
+    let headerH1 = document.querySelector(".h1A");
 
     let zeroC = document.querySelector(".zeroC");
     let oneC = document.querySelector(".oneC");
@@ -307,9 +333,9 @@
 
 
     let cursorPointer = document.querySelectorAll(".pointer");
-     cursorPointer.forEach(function(changeme, index){
-     changeme.style.cursor="pointer";
-     });
+    cursorPointer.forEach(function(changeme, index) {
+        changeme.style.cursor = "pointer";
+    });
 
     function beat() {
         if (activateScale == 0) {
@@ -327,8 +353,10 @@
         heart.pause();
         inner.classList.remove("scale-inner");
         activateScale = 1;
+        inner.removeEventListener('click', firstEvent);
         square0.classList.add("square0appear")
         square0.classList.add("square0")
+        inner.style.cursor = "default";
         setTimeout(secondEvent, 1100);
     }
 
@@ -360,27 +388,43 @@
                 fa[i].classList.remove("fa-no");
                 fa[i].classList.add("fade");
             }
+            headerH1.classList.add("h1-animation");
+            setTimeout(headerAppear, 200)
+
+        }
+        function headerAppear(){
+
         }
     }
 
 
-    zeroC.addEventListener('mouseenter', function(){square0.classList.add("hoverC")}) ;
-    zeroC.addEventListener('mouseleave', function(){square0.classList.remove("hoverC")}) ;
+    zeroC.addEventListener('mouseenter', function() {
+        square0.classList.add("hoverC")
+    });
+    zeroC.addEventListener('mouseleave', function() {
+        square0.classList.remove("hoverC")
+    });
 
-    oneC.addEventListener('mouseenter', function(){square1.classList.add("hoverC")}) ;
-    oneC.addEventListener('mouseleave', function(){square1.classList.remove("hoverC")}) ;
+    oneC.addEventListener('mouseenter', function() {
+        square1.classList.add("hoverC")
+    });
+    oneC.addEventListener('mouseleave', function() {
+        square1.classList.remove("hoverC")
+    });
 
-    twoC.addEventListener('mouseenter', function(){square2.classList.add("hoverC")}) ;
-    twoC.addEventListener('mouseleave', function(){square2.classList.remove("hoverC")}) ;
+    twoC.addEventListener('mouseenter', function() {
+        square2.classList.add("hoverC")
+    });
+    twoC.addEventListener('mouseleave', function() {
+        square2.classList.remove("hoverC")
+    });
 
-    threeC.addEventListener('mouseenter', function(){square3.classList.add("hoverC")}) ;
-    threeC.addEventListener('mouseleave', function(){square3.classList.remove("hoverC")}) ;
-
-
-
-
-
-
+    threeC.addEventListener('mouseenter', function() {
+        square3.classList.add("hoverC")
+    });
+    threeC.addEventListener('mouseleave', function() {
+        square3.classList.remove("hoverC")
+    });
 </script>
 
 </html>
