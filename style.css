@@ -1,0 +1,281 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    position: fixed;
+    overflow-y: scroll;
+    font-family: 'Dosis', sans-serif;
+}
+
+.navigation {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    /*margin: 50px auto 0px auto; */
+}
+
+#main-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 250px;
+    background: #ff5972;
+    z-index: 1000;
+
+}
+
+.scale-inner {
+    animation: scaleInner 1s infinite;
+}
+
+@keyframes scaleInner {
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.square0new {
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    bottom: 250px;
+    left: 0;
+    right: -250px;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 0px 250px 0px 0;
+    background: pink;
+    transform-origin: left bottom;
+    z-index: 200;
+}
+
+.square0newAni1 {
+    animation: square1rotates 2s linear forwards;
+}
+
+@keyframes square1rotates {
+    to {
+        transform: rotate(270deg);
+    }
+}
+
+.square0 {
+    position: absolute;
+    top: 0;
+    bottom: 125px;
+    left: 0;
+    right: -125px;
+    margin: auto;
+    width: 125px;
+    height: 125px;
+    border-radius: 0px 125px 0px 0;
+    background: #ffa5ab;
+    z-index: 10;
+}
+
+.square0appear {
+    opacity: 0;
+    animation: square1appears 1s ease-out forwards;
+}
+
+@keyframes square1appears {
+    to {
+        bottom: 250px;
+        right: -250px;
+        transform: scale(2);
+        opacity: 1;
+    }
+}
+
+.square1 {
+    position: absolute;
+    top: 0;
+    bottom: 250px;
+    left: 0;
+    right: -250px;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 0px 250px 0px 0;
+    background: pink;
+    opacity: 0;
+}
+
+.square1appear {
+    animation: sq1 0.4s forwards;
+}
+
+@keyframes sq1 {
+    to {
+        opacity: 1;
+        z-index: 111;
+    }
+}
+
+
+.square2 {
+    position: absolute;
+    top: 0;
+    bottom: -250px;
+    left: 0;
+    right: -250px;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 0px 0px 250px 0px;
+    background: pink;
+    opacity: 0;
+}
+
+.square3 {
+    position: absolute;
+    top: 0;
+    bottom: -250px;
+    left: -250px;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 0px 0px 0px 250px;
+    background: pink;
+    opacity: 0;
+}
+
+.inner i {
+    position: absolute;
+    top: 90px;
+    bottom: 0;
+    left: 85px;
+    right: 0;
+    margin: auto;
+    color: white;
+}
+
+.zeroC i {
+    position: absolute;
+    top: 72px;
+    left: 75px;
+    z-index: 3000;
+    color: white;
+}
+
+.oneC i {
+    position: absolute;
+    top: 70px;
+    left: 345px;
+    z-index: 3000;
+    color: white;
+}
+
+.twoC i {
+    position: absolute;
+    top: 343px;
+    left: 340px;
+    z-index: 3000;
+    color: white;
+}
+
+.threeC i {
+    position: absolute;
+    top: 346px;
+    left: 75px;
+    z-index: 3000;
+    color: white;
+}
+
+.hoverC {
+    transition: all 1.2s;
+    background-color: #ff868e;
+}
+
+.fa-no {
+    display: none;
+    opacity: 0;
+}
+
+.fade {
+    opacity: 0;
+    animation: fading 2s linear forwards;
+}
+
+@keyframes fading {
+    to {
+        opacity: 1;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.zero,
+.one,
+.two,
+.three {
+    border: .5px solid white;
+}
+
+.h1-animation {
+    color: #ff5972;
+    text-align: center;
+    font-size: 50px;
+    width: 525px;
+    margin: 20px auto 0px auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(60, end);
+}
+
+#header {
+    color: #ff5972;
+    text-align: center;
+}
+
+#header h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+
+}
+footer p{
+    color: #ffb7c4;
+    text-align:center;
+    width:280px;
+    margin: 0 auto;
+}
+footer a{
+    color: #ffb7c4;
+}
+footer a:hover{
+    color: #ff4c6c;
+}
