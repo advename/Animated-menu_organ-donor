@@ -3,17 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
     <title>Animated Menu</title>
     <style>
-        body{
-            margin:0px;
-            padding:0px;
+        body {
+            margin: 0px;
+            padding: 0px;
             height: 100vh;
             width: 100vw;
-            background-image: url(images/door-1912_976.jpg);
-            background-position: 0 0;
-            background-size: cover
+            background:white;
+            position: fixed;
+            overflow-y: scroll;
         }
+
         /*#main-content{
             position:absolute;
             top:0;
@@ -26,134 +29,197 @@
             border-radius: 100px;
             background:blue;
         }*/
+
         .inner {
-            position:absolute;
-            top:0;
-            bottom:0;
-            left:0;
-            right:0;
-            margin:auto;
-            width:250px;
-            height:250px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 250px;
+            height: 250px;
             border-radius: 250px;
-            background:blue;
+            background: #ff5972;
             z-index: 1000;
 
         }
+        .scale-inner{
+            animation: scaleInner 1s infinite;
+        }
+        @keyframes scaleInner {
+            50%{
+                transform: scale(1.5);
+            }
+        }
 
-        .square0new{
-            z-index:50;
-            position:absolute;
-            top:0;
-            bottom:250px;
-            left:0;
-            right:-250px;
-            margin:auto;
-            width:250px;
-            height:250px;
+        .square0new {
+            z-index: 50;
+            position: absolute;
+            top: 0;
+            bottom: 250px;
+            left: 0;
+            right: -250px;
+            margin: auto;
+            width: 250px;
+            height: 250px;
             border-radius: 0px 250px 0px 0;
-            background:black;
+            background: #ffa5ab;
             transform-origin: left bottom;
             z-index: 200;
         }
-        .square0newAni1{
+
+        .square0newAni1 {
 
             animation: square1rotates 2s linear forwards;
         }
 
         @keyframes square1rotates {
 
-            100%{
+            100% {
                 transform: rotate(270deg);
             }
         }
 
-        .square0{
-            position:absolute;
-            top:0;
-            bottom:125px;
-            left:0;
-            right:-125px;
-            margin:auto;
-            width:125px;
-            height:125px;
+        .square0 {
+            position: absolute;
+            top: 0;
+            bottom: 125px;
+            left: 0;
+            right: -125px;
+            margin: auto;
+            width: 125px;
+            height: 125px;
             border-radius: 0px 125px 0px 0;
-            background:black;
+            background: #ffa5ab;
             z-index: 10;
         }
-        .square0appear{
+
+        .square0appear {
             opacity: 0;
-            animation: square1appears 2s ease-out forwards;
+            animation: square1appears 1s ease-out forwards;
         }
-        @keyframes square1appears{
-            to{
-                bottom:250px;
-                right:-250px;
+
+        @keyframes square1appears {
+            to {
+                bottom: 250px;
+                right: -250px;
                 transform: scale(2);
                 opacity: 1;
             }
         }
-        .square1{
-            position:absolute;
-            top:0;
-            bottom:250px;
-            left:0;
-            right:-250px;
-            margin:auto;
-            width:250px;
-            height:250px;
+
+        .square1 {
+            position: absolute;
+            top: 0;
+            bottom: 250px;
+            left: 0;
+            right: -250px;
+            margin: auto;
+            width: 250px;
+            height: 250px;
             border-radius: 0px 250px 0px 0;
-            background:green;
+            background: pink;
             opacity: 0;
         }
+
         .square1appear {
             animation: sq1 0.4s forwards;
         }
-        @keyframes sq1{
-            to{
-              opacity: 1;
-            z-index: 111;
+
+        @keyframes sq1 {
+            to {
+                opacity: 1;
+                z-index: 111;
             }
         }
 
 
-        .square2{
-            position:absolute;
-            top:0;
-            bottom:-250px;
-            left:0;
-            right:-250px;
-            margin:auto;
-            width:250px;
-            height:250px;
+        .square2 {
+            position: absolute;
+            top: 0;
+            bottom: -250px;
+            left: 0;
+            right: -250px;
+            margin: auto;
+            width: 250px;
+            height: 250px;
             border-radius: 0px 0px 250px 0px;
-            background:red;
+            background: pink;
             opacity: 0;
         }
-        .square3{
-            position:absolute;
-            top:0;
-            bottom:-250px;
-            left:-250px;
-            right:0;
-            margin:auto;
-            width:250px;
-            height:250px;
+
+        .square3 {
+            position: absolute;
+            top: 0;
+            bottom: -250px;
+            left: -250px;
+            right: 0;
+            margin: auto;
+            width: 250px;
+            height: 250px;
             border-radius: 0px 0px 0px 250px;
-            background:pink;
+            background: pink;
             opacity: 0;
         }
-        .square4{
-            position:absolute;
-            top:0;
-            bottom:250px;
-            left:-250px;
-            right:0;
-            margin:auto;
-            width:250px;
-            height:250px;
-            border-radius: 250px 0px 0px 0px;
-            background:lightblue;
+
+        .inner i{
+            position: absolute;
+            top: 90px;
+            bottom: 0;
+            left: 85px;
+            right: 0;
+            margin: auto;
+            color:white;
+        }
+        .zeroC i{
+            position: absolute;
+            top: 200px;
+            bottom: 0px;
+            left: 160px;
+            right: 0px;
+            margin: auto;
+            z-index:3000;
+            color:white;
+        }
+        .oneC i{
+            position: absolute;
+            top: 200px;
+            bottom: 0px;
+            left: 430px;
+            right: 0px;
+            margin: auto;
+            z-index:3000;
+            color:white;
+        }
+        .twoC i{
+            position: absolute;
+            top: 445px;
+            bottom: 0px;
+            left: 430px;
+            right: 0px;
+            margin: auto;
+            z-index:3000;
+            color:white;
+        }
+        .threeC i{
+            position: absolute;
+            top: 445px;
+            bottom: 0px;
+            left: 160px;
+            right: 0px;
+            margin: auto;
+            z-index:3000;
+            color:white;
+        }
+        .hoverC:hover{
+            transition: all 1.2s;
+            background-color: #ffa5ab;
+        }
+        .fade {
+            display:none;
+            transition: all 1.2s;
+            opacity: 0;
         }
     </style>
 </head>
@@ -161,44 +227,97 @@
 <body>
     <div id="main-content">
         <div class="navigation">
-            <div class= "inner"></div>
-            <div class="zero"></div>
-            <div class="one square1"></div>
-            <div class="two square2"></div>
-            <div class="three square3"></div>
+            <div class="inner"><i class="fa fa-heartbeat fa-5x"></i></div>
+
+            <div  class="zeroC hoverC">
+                <i class="fa fa-globe fa-5x fade"></i>
+                <div class="zero"></div>
+            </div>
+
+            <div  class="oneC hoverC">
+                <i class="fa fa-search fa-5x fade"></i>
+                <div class="one square1"></div>
+            </div>
+
+
+            <div  class="twoC hoverC">
+                <i class="fa fa-envelope-o fa-5x fade"></i>
+                <div class="two square2"></div>
+            </div>
+
+            <div  class="threeC hoverC">
+                <i class="fa fa-pencil-square-o fa-5x fade"></i>
+                <div class="three square3"></div>
+            </div>
+
         </div>
     </div>
+    <audio controls loop class="heart">
+            <source src="audio/heart.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+    </audio>
 
 </body>
-    <script>
-        let square0 = document.querySelector(".zero");
-        let square1 = document.querySelector(".one");
-        let square2 = document.querySelector(".two");
-        let square3 = document.querySelector(".three");
+<script>
+    let square0 = document.querySelector(".zero");
+    let square1 = document.querySelector(".one");
+    let square2 = document.querySelector(".two");
+    let square3 = document.querySelector(".three");
+    let inner = document.querySelector(".inner");
+    let heart = document.querySelector(".heart");
+    let activateScale = 0;
+    let fade = document.querySelector(".fade");
 
-        window.addEventListener("load",firstEvent)
+    inner.addEventListener('mouseenter', beat);
+    inner.addEventListener('mouseleave', beatStop);
+    inner.addEventListener('click', firstEvent);
 
-        function firstEvent(){
-            square0.classList.add("square0appear")
-            square0.classList.add("square0")
-            square0.addEventListener("mouseover", secondEvent)
+
+    function beat() {
+        if (activateScale == 0){
+        inner.classList.add("scale-inner");
+        heart.play();
         }
-        function secondEvent(){
-            square0.classList.remove("square0appear")
-            square0.classList.remove("square0")
-            square0.classList.add("square0new")
-            square0.classList.add("square0newAni1")
-            setTimeout(square1ani, 690)
+    }
+    function beatStop() {
+        inner.classList.remove("scale-inner");
+        heart.pause();
+    }
 
-        function square1ani(){
-               square1.classList.add("square1appear");}
-            setTimeout(square2ani, 1100)
-         function square2ani(){
-               square2.classList.add("square1appear");}
-            setTimeout(square3ani, 1400)
-         function square3ani(){
-               square3.classList.add("square1appear");}
-             }
+    function firstEvent() {
+        heart.pause();
+        inner.classList.remove("scale-inner");
+        activateScale = 1;
+        square0.classList.add("square0appear")
+        square0.classList.add("square0")
+        setTimeout(secondEvent, 1100);
+    }
 
-    </script>
+    function secondEvent() {
+        square0.classList.remove("square0appear")
+        square0.classList.remove("square0")
+        square0.classList.add("square0new")
+        square0.classList.add("square0newAni1")
+        setTimeout(square1ani, 490)
+
+        function square1ani() {
+            square1.classList.add("square1appear");
+        }
+        setTimeout(square2ani, 1100)
+
+        function square2ani() {
+            square2.classList.add("square1appear");
+        }
+        setTimeout(square3ani, 1700)
+
+        function square3ani() {
+            square3.classList.add("square1appear");
+            setTimeout(iconAppear, 1700)
+        }
+        function iconAppear(){
+            fade.style.display= "unset";
+            fade.style.opacity=1;
+        }
+    }
+</script>
 </html>
