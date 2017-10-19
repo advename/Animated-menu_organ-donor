@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="EN">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,16 @@
             padding: 0px;
             height: 100vh;
             width: 100vw;
-            background:white;
+            background: white;
             position: fixed;
             overflow-y: scroll;
+        }
+
+        .navigation {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            margin: 50px auto 0px auto;
         }
 
         /*#main-content{
@@ -44,11 +52,13 @@
             z-index: 1000;
 
         }
-        .scale-inner{
+
+        .scale-inner {
             animation: scaleInner 1s infinite;
         }
+
         @keyframes scaleInner {
-            50%{
+            50% {
                 transform: scale(1.5);
             }
         }
@@ -77,6 +87,7 @@
         @keyframes square1rotates {
 
             100% {
+                background: pink;
                 transform: rotate(270deg);
             }
         }
@@ -163,64 +174,81 @@
             opacity: 0;
         }
 
-        .inner i{
+        .inner i {
             position: absolute;
             top: 90px;
             bottom: 0;
             left: 85px;
             right: 0;
             margin: auto;
-            color:white;
+            color: white;
         }
-        .zeroC i{
+
+        .zeroC i {
             position: absolute;
-            top: 200px;
+            top: 90px;
             bottom: 0px;
-            left: 160px;
+            left: 75px;
             right: 0px;
             margin: auto;
-            z-index:3000;
-            color:white;
+            z-index: 3000;
+            color: white;
         }
-        .oneC i{
+
+        .oneC i {
             position: absolute;
-            top: 200px;
+            top: 90px;
             bottom: 0px;
-            left: 430px;
+            left: 345px;
             right: 0px;
             margin: auto;
-            z-index:3000;
-            color:white;
+            z-index: 3000;
+            color: white;
         }
-        .twoC i{
+
+        .twoC i {
             position: absolute;
-            top: 445px;
+            top: 340px;
             bottom: 0px;
-            left: 430px;
+            left: 345px;
             right: 0px;
             margin: auto;
-            z-index:3000;
-            color:white;
+            z-index: 3000;
+            color: white;
         }
-        .threeC i{
+
+        .threeC i {
             position: absolute;
-            top: 445px;
+            top: 345px;
             bottom: 0px;
-            left: 160px;
+            left: 75px;
             right: 0px;
             margin: auto;
-            z-index:3000;
-            color:white;
+            z-index: 3000;
+            color: white;
         }
-        .hoverC:hover{
+
+        .hoverC {
             transition: all 1.2s;
             background-color: #ffa5ab;
         }
-        .fade {
-            display:none;
-            transition: all 1.2s;
+
+        .fa-no {
+            display: none;
             opacity: 0;
         }
+
+        .fade {
+            opacity: 0;
+            animation: fading 2s linear forwards;
+        }
+
+        @keyframes fading {
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 
@@ -229,24 +257,24 @@
         <div class="navigation">
             <div class="inner"><i class="fa fa-heartbeat fa-5x"></i></div>
 
-            <div  class="zeroC hoverC">
-                <i class="fa fa-globe fa-5x fade"></i>
+            <div class="zeroC">
+                <i class="fa fa-globe fa-5x fa-no circle"></i>
                 <div class="zero"></div>
             </div>
 
-            <div  class="oneC hoverC">
-                <i class="fa fa-search fa-5x fade"></i>
+            <div class="oneC">
+                <i class="fa fa-search fa-5x fa-no circle"></i>
                 <div class="one square1"></div>
             </div>
 
 
-            <div  class="twoC hoverC">
-                <i class="fa fa-envelope-o fa-5x fade"></i>
+            <div class="twoC">
+                <i class="fa fa-envelope-o fa-5x fa-no circle"></i>
                 <div class="two square2"></div>
             </div>
 
-            <div  class="threeC hoverC">
-                <i class="fa fa-pencil-square-o fa-5x fade"></i>
+            <div class="threeC">
+                <i class="fa fa-pencil-square-o fa-5x fa-no circle"></i>
                 <div class="three square3"></div>
             </div>
 
@@ -266,7 +294,12 @@
     let inner = document.querySelector(".inner");
     let heart = document.querySelector(".heart");
     let activateScale = 0;
-    let fade = document.querySelector(".fade");
+    let fa = document.querySelectorAll(".circle");
+
+    let zeroC = document.querySelector(".zeroC");
+    let oneC = document.querySelector(".oneC");
+    let twoC = document.querySelector(".twoC");
+    let threeC = document.querySelector(".threeC");
 
     inner.addEventListener('mouseenter', beat);
     inner.addEventListener('mouseleave', beatStop);
@@ -274,11 +307,12 @@
 
 
     function beat() {
-        if (activateScale == 0){
-        inner.classList.add("scale-inner");
-        heart.play();
+        if (activateScale == 0) {
+            inner.classList.add("scale-inner");
+            heart.play();
         }
     }
+
     function beatStop() {
         inner.classList.remove("scale-inner");
         heart.pause();
@@ -312,12 +346,36 @@
 
         function square3ani() {
             square3.classList.add("square1appear");
-            setTimeout(iconAppear, 1700)
+            setTimeout(iconAppear, 200)
         }
-        function iconAppear(){
-            fade.style.display= "unset";
-            fade.style.opacity=1;
+
+        function iconAppear() {
+            for (var i = 0; i < fa.length; i++) {
+                console.log("current loop" + i);
+                fa[i].classList.remove("fa-no");
+                fa[i].classList.add("fade");
+            }
         }
     }
+
+
+    zeroC.addEventListener('mouseenter', function(){square0.classList.add("hoverC")}) ;
+    zeroC.addEventListener('mouseleave', function(){square0.classList.remove("hoverC")}) ;
+
+    oneC.addEventListener('mouseenter', function(){square1.classList.add("hoverC")}) ;
+    oneC.addEventListener('mouseleave', function(){square1.classList.remove("hoverC")}) ;
+
+    twoC.addEventListener('mouseenter', function(){square2.classList.add("hoverC")}) ;
+    twoC.addEventListener('mouseleave', function(){square2.classList.remove("hoverC")}) ;
+
+    threeC.addEventListener('mouseenter', function(){square3.classList.add("hoverC")}) ;
+    threeC.addEventListener('mouseleave', function(){square3.classList.remove("hoverC")}) ;
+
+
+
+
+
+
 </script>
+
 </html>
