@@ -83,7 +83,8 @@
         }
 
         function headerAppear() {
-
+            fa[i].classList.remove("fa-no");
+            fa[i].classList.add("fade");
         }
     }
 
