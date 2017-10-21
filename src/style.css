@@ -310,3 +310,39 @@ footer a {
 footer a:hover {
     color: #ff4c6c;
 }
+
+@media screen and (max-width: 1920px) {
+    .navigation {
+        transform: scale(.75);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .navigation {
+        transform: scale(.55);
+        margin-top: 60px;
+    }
+    .h1-animation {
+        font-size: 30px;
+        width:auto;
+    }
+    #header h2 {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .navigation {
+        transform: scale(.55) translateX(-100px);
+        margin-top: 60px;
+    }
+    .h1-animation {
+        font-size: 30px;
+        width:auto;
+    }
+    #header h2 {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+}
